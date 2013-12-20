@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using Logic.Model;
 
 namespace WebApplication1.Areas.Dashboard.Models
@@ -13,7 +9,7 @@ namespace WebApplication1.Areas.Dashboard.Models
         public int Id { get; set; }
 
         [Required]
-        [Description("Name:")]
+        [DisplayName("Name:")]
         public string Name { get; set; }
     }
 

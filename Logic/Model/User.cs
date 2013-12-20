@@ -25,7 +25,7 @@ namespace Logic.Model
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public Nullable<System.DateTime> BirthDate { get; set; }
+        public System.DateTime BirthDate { get; set; }
         public string Email { get; set; }
     
         public virtual ICollection<UserGroup> Groups { get; set; }

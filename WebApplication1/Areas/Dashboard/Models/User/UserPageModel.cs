@@ -5,6 +5,6 @@ namespace WebApplication1.Areas.Dashboard.Models
 {
     public class UserPageModel
     {
-        public List<User> Users { get; set; }
+        public List<UserModel> Users { get; set; }
     }
 }

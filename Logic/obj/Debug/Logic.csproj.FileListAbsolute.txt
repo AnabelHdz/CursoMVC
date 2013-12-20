@@ -7,3 +7,4 @@ c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\
 c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\EntityFramework.SqlServer.xml
 c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\obj\Debug\Logic.dll
 c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\obj\Debug\Logic.pdb
+C:\Users\Carlos\documents\visual studio 2013\Projects\WebApplication1\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache

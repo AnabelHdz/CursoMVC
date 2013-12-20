@@ -19,12 +19,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
-    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" />
-    <Property Name="BirthDate" Type="datetime" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="UserGroup">
     <Key>
@@ -32,15 +32,15 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="int" />
+    <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="UserId" Type="int" />
-    <Property Name="RoleId" Type="int" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_UserGroup_Group">
     <End Role="Group" Type="Self.Group" Multiplicity="1" />
@@ -55,7 +55,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserGroup_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -67,7 +67,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserRole_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
@@ -79,7 +79,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserRole_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">

@@ -9,7 +9,7 @@ namespace WebApplication1.Areas.Dashboard.Models
         public int Id { get; set; }
 
         [Required]
-        [Description("Name:")]
+        [DisplayName("Name:")]
         public string Name { get; set; }
 
     }

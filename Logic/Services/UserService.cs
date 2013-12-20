@@ -1,33 +1,59 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using Logic.Model;
 
 namespace Logic.Services
 {
     public class UserService : BaseService
     {
+        public List<User> Get()
+        {
+            return _context.User.ToList();
+        }
+
         public User Find(int id)
         {
             return _context.User.Find(id);
         }
 
-        public void Save(User user)
+        public bool Save(User user)
         {
-            if (user.Id == 0)
+            try
             {
-                _context.User.Add(user);
+                if (user.Id == 0)
+                {
+                    _context.User.Add(user);
+                }
+                else
+                {
+                    var oldUser = _context.User.Find(user.Id);
+                    _context.Entry(oldUser).CurrentValues.SetValues(user);
+                }
+                _context.SaveChanges();
+                return true;
             }
-            else
+            catch (Exception)
             {
-                var oldUser = _context.User.Find(user.Id);
-                _context.Entry(oldUser).CurrentValues.SetValues(user);
+                _context.SaveChanges();
+                return false;
             }
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            var user = Find(id);
-            _context.User.Remove(user);
+            try
+            {
+                var user = Find(id);
+                _context.User.Remove(user);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool AddGroup(int userId, int groupId)

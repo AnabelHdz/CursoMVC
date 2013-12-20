@@ -1,0 +1,21 @@
+﻿@model WebApplication1.Areas.Dashboard.Models.UserModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row span12">
+    <h1>Delete User</h1>
+    @using (Html.BeginForm("Delete", "Users", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        
+        @Html.HiddenFor(x=>x.Id)
+        <text>Are you sure you want to delete the user "@Model.FirstName @Model.LastName"??</text>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        @Html.ActionLink("Go Back", "Index", new { Controller = "Users" }, new { @class = "btn btn-default" })
+    }
+</div>

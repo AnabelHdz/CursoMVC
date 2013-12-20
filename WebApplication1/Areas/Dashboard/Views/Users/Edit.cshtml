@@ -1,0 +1,64 @@
+﻿@model WebApplication1.Areas.Dashboard.Models.UserModel
+
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<div class="row span12">
+    <h1>User Details</h1>
+    @using (Html.BeginForm("Save", "Users", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        
+        @Html.HiddenFor(x=>x.Id)
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.FirstName)
+            @Html.TextBoxFor(x => x.FirstName, new { @class="form-control" })                        
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.LastName)
+            @Html.TextBoxFor(x => x.LastName, new { @class="form-control" })                        
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })                        
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.UserName)
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })                        
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.Password)
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control" })                        
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.PasswordConfirm)
+            @Html.PasswordFor(x => x.PasswordConfirm, new { @class = "form-control" })                        
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.BirthDate)
+            @Html.TextBoxFor(x => x.BirthDate, new { @class = "form-control" })                        
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        @Html.ActionLink("Go Back", "Index", new { Controller = "Users" }, new { @class = "btn btn-default" })
+    }
+</div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('#BirthDate').datepicker();
+    })
+
+</script>

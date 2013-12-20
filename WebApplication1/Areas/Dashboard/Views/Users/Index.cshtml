@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Areas.Dashboard.Models.UserPageModel
+
+@{
+    ViewBag.Title = "Users Management";
+}
+<div class="row span12">
+    <h1>Users Management</h1>
+    @Html.ActionLink("Create", "Create", new { Controller = "Users" }, new { @class = "btn btn-primary" })
+    @if (Model.Users.Any())
+    {
+        <br />
+        <br />
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>UserName</th>
+                    <th>BirthDate</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model.Users)
+                {
+                    <tr>
+                        <td>@role.FirstName</td>
+                        <td>@role.LastName</td>
+                        <td>@role.UserName</td>
+                        <td>@role.BirthDate</td>
+                        <td>@role.Email</td>                        
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { Controller = "Users", role.Id }, new { @class = "btn btn-default" })
+                            @Html.ActionLink("Delete", "Delete", new { Controller = "Users", role.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>
+            Sorry, we couldn't find any users.
+        </p>        
+    }
+</div>
