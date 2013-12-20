@@ -1,0 +1,38 @@
+﻿@model WebApplication1.Areas.Dashboard.Models.RolePageModel
+
+@{
+    ViewBag.Title = "Groups Management";
+}
+<div class="row span12">
+    <h1>Role Management</h1>
+    @Html.ActionLink("Create", "Create", new { Controller = "Roles" }, new { @class = "btn btn-primary" })
+    @if (Model.Roles.Any())
+{
+    <br/>
+        <br/>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model.Roles)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { Controller = "Groups", role.Id }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Delete", "Delete", new { Controller = "Groups", role.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+        <p>Sorry, you haven create any Roles</p>
+    }
+</div>

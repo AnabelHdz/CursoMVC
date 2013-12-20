@@ -1,0 +1,24 @@
+﻿@model WebApplication1.Areas.Dashboard.Models.GroupModel
+
+@{
+    ViewBag.Title = "Edit Role";
+}
+
+<div class="row span12">
+    <h1>Group Details</h1>
+    @using (Html.BeginForm("Save", "Groups", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        
+        @Html.HiddenFor(x=>x.Id)
+        
+        <div class="form-group">
+            @Html.LabelFor(x=>x.Name)
+            @Html.TextBoxFor(x => x.Name, new { @class="form-control" })                        
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        @Html.ActionLink("Go Back", "Index", new { Controller = "Groups" }, new { @class = "btn btn-default" })
+    }
+</div>

@@ -1,0 +1,21 @@
+﻿@model WebApplication1.Areas.Dashboard.Models.GroupModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row span12">
+    <h1>Delete Group</h1>
+    @using (Html.BeginForm("Delete", "Groups", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        
+        @Html.HiddenFor(x=>x.Id)
+        <text>Are you sure you want to delete the Role "@Model.Name"??</text>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        @Html.ActionLink("Go Back", "Index", new { Controller = "Groups" }, new { @class = "btn btn-default" })
+    }
+</div>

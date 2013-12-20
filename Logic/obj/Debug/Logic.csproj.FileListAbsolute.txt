@@ -1,0 +1,9 @@
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\Logic.dll.config
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\Logic.dll
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\Logic.pdb
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\EntityFramework.dll
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\EntityFramework.xml
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\obj\Debug\Logic.dll
+c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\Logic\obj\Debug\Logic.pdb
