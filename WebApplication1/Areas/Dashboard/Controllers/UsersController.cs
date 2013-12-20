@@ -4,13 +4,17 @@ using WebApplication1.Areas.Dashboard.Models;
 
 namespace WebApplication1.Areas.Dashboard.Controllers
 {
+    using System.Collections.Generic;
+    using System.Runtime.Remoting.Messaging;
+    using System.Web.ApplicationServices;
+
     public class UsersController : Controller
     {
         private UserService userService;
 
         public UsersController()
         {
-             userService = new UserService();
+            userService = new UserService();
         }
 
         #region Views
@@ -26,12 +30,25 @@ namespace WebApplication1.Areas.Dashboard.Controllers
         {
             var model = new UserModel();
 
+            var roles = new Logic.Services.RoleService().Get().ConvertAll(x => x.ToViewModel());
+
+            foreach (var role in roles)
+            {
+                model.Roles.Add(new SelectListItem { Text = role.Name, Value = role.Id.ToString() });
+            }
+
             return View("Edit", model);
         }
 
         public ActionResult Edit(int id)
         {
             var model = userService.Find(id).ToViewModel();
+            
+            var roles = new Logic.Services.RoleService().Get().ConvertAll(x => x.ToViewModel());
+            foreach (var role in roles)
+            {
+                model.Roles.Add(new SelectListItem { Text = role.Name, Value = role.Id.ToString(), Selected = role.Id==model.RoleId});
+            }
 
             return View(model);
         }

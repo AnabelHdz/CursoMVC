@@ -1,50 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CursoMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="CursoMVCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CursoMVCModelStoreContainer">
+    <EntitySet Name="Group" EntityType="CursoMVCModel.Store.Group" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role" EntityType="CursoMVCModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="CursoMVCModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserGroup" EntityType="CursoMVCModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_User_Role" Association="CursoMVCModel.Store.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_Group" Association="CursoMVCModel.Store.FK_UserGroup_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="UserGroup" EntitySet="UserGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_User" Association="CursoMVCModel.Store.FK_UserGroup_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserGroup" EntitySet="UserGroup" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Group">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="BirthDate" Type="datetime" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="RoleId" Type="int" />
   </EntityType>
   <EntityType Name="UserGroup">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserRole">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
-  </EntityType>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="CursoMVCModel.Store.Role" Multiplicity="0..1" />
+    <End Role="User" Type="CursoMVCModel.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserGroup_Group">
-    <End Role="Group" Type="Self.Group" Multiplicity="1" />
-    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+    <End Role="Group" Type="CursoMVCModel.Store.Group" Multiplicity="1" />
+    <End Role="UserGroup" Type="CursoMVCModel.Store.UserGroup" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Group">
         <PropertyRef Name="Id" />
@@ -55,8 +78,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserGroup_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+    <End Role="User" Type="CursoMVCModel.Store.User" Multiplicity="1" />
+    <End Role="UserGroup" Type="CursoMVCModel.Store.UserGroup" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -66,51 +89,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserRole_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="1" />
-    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Role">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserRole">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserRole_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserRole">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="CursoMVCModelStoreContainer">
-    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_UserGroup_Group" Association="Self.FK_UserGroup_Group">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="UserGroup" EntitySet="UserGroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserGroup_User" Association="Self.FK_UserGroup_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserGroup" EntitySet="UserGroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="UserRole" EntitySet="UserRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserRole" EntitySet="UserRole" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

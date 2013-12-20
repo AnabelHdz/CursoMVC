@@ -30,3 +30,34 @@ c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\WebApplica
 c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\Web.csprojResolveAssemblyReference.cache
 c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 c:\Users\Carlos\Documents\Visual Studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Projects\CursoMVC\WebApplication1\bin\WebApplication1.dll
+C:\Projects\CursoMVC\WebApplication1\bin\WebApplication1.pdb
+C:\Projects\CursoMVC\WebApplication1\bin\Antlr3.Runtime.dll
+C:\Projects\CursoMVC\WebApplication1\bin\EntityFramework.dll
+C:\Projects\CursoMVC\WebApplication1\bin\EntityFramework.SqlServer.dll
+C:\Projects\CursoMVC\WebApplication1\bin\Logic.dll
+C:\Projects\CursoMVC\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\CursoMVC\WebApplication1\bin\Newtonsoft.Json.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Helpers.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Mvc.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Optimization.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Razor.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.WebPages.dll
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.WebPages.Razor.dll
+C:\Projects\CursoMVC\WebApplication1\bin\WebGrease.dll
+C:\Projects\CursoMVC\WebApplication1\bin\Logic.pdb
+C:\Projects\CursoMVC\WebApplication1\bin\EntityFramework.xml
+C:\Projects\CursoMVC\WebApplication1\bin\EntityFramework.SqlServer.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Helpers.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Mvc.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Optimization.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.Razor.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.WebPages.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\CursoMVC\WebApplication1\bin\System.Web.WebPages.Razor.xml
+C:\Projects\CursoMVC\WebApplication1\bin\Newtonsoft.Json.xml
+C:\Projects\CursoMVC\WebApplication1\bin\Antlr3.Runtime.pdb
+C:\Projects\CursoMVC\WebApplication1\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Projects\CursoMVC\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Projects\CursoMVC\WebApplication1\obj\Debug\WebApplication1.pdb

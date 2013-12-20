@@ -10,8 +10,7 @@ namespace Logic.Services
     {
         public List<Role> Get()
         {
-            var context = new CursoEntities();
-            return context.Role.ToList();
+            return _context.Role.ToList();
         }
 
         public Role Find(int id)

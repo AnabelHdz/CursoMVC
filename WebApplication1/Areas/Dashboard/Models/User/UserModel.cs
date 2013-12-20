@@ -8,18 +8,20 @@ using Logic.Model;
 
 namespace WebApplication1.Areas.Dashboard.Models
 {
+    using System.Web.Mvc;
+
     public class UserModel
     {
         public UserModel()
         {
             Groups = new List<GroupModel>();
-            Roles = new List<RoleModel>();
+            Roles = new List<SelectListItem>();
         }
 
         public UserModel(User model)
         {
             Groups = new List<GroupModel>();
-            Roles = new List<RoleModel>();
+            Roles = new List<SelectListItem>();
 
             Id = model.Id;
             FirstName = model.FirstName;
@@ -34,10 +36,10 @@ namespace WebApplication1.Areas.Dashboard.Models
                 Groups.Add(new GroupModel { Id = group.GroupId, Name = group.Group.Name });
             }
 
-            foreach (var role in model.Roles)
-            {
-                Roles.Add(new RoleModel { Id = role.RoleId, Name = role.Role.Name });
-            }
+            //foreach (var role in model.Roles)
+            //{
+            //    Roles.Add(new RoleModel { Id = role.RoleId, Name = role.Role.Name });
+            //}
         }
 
         public int Id { get; set; }
@@ -61,7 +63,7 @@ namespace WebApplication1.Areas.Dashboard.Models
         [Required]
         [DataType(DataType.Password)]
         [DisplayName("Re-enter Password")]
-        [Compare("Password", ErrorMessage = "Passwords must match")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Passwords must match")]
         public string PasswordConfirm { get; set; }
 
         [Required]
@@ -75,7 +77,12 @@ namespace WebApplication1.Areas.Dashboard.Models
         public string Email { get; set; }
 
         public List<GroupModel> Groups { get; set; }
-        public List<RoleModel> Roles { get; set; }
+        
+        public List<SelectListItem> Roles { get; set; }    
+    
+        [Required]
+        [DisplayName("Role:")]
+        public int RoleId { get; set; }
     }
 
     public static class UserExtensions

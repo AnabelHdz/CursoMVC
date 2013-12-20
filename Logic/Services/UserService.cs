@@ -71,13 +71,13 @@ namespace Logic.Services
 
         public bool AddRole(int userId, int roleId)
         {
-            var user = Find(userId);
+            //var user = Find(userId);
 
-            if (user.Groups.All(x => x.GroupId != roleId))
-            {
-                user.Roles.Add(new UserRole { UserId = userId, RoleId = roleId });
-                return true;
-            }
+            //if (user.Groups.All(x => x.GroupId != roleId))
+            //{
+            //    user.Roles.Add(new UserRole { UserId = userId, RoleId = roleId });
+            //    return true;
+            //}
 
             return false;
         }

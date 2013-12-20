@@ -4,7 +4,7 @@
     ViewBag.Title = "Groups Management";
 }
 <div class="row span12">
-    <h1>Role Management</h1>
+    <h1>Group Management</h1>
     @Html.ActionLink("Create", "Create", new { Controller = "Groups" }, new { @class = "btn btn-primary" })
     @if (Model.Groups.Any())
     {
@@ -37,4 +37,5 @@
             Sorry, you haven create any Groups
         </p>        
     }
+
 </div>

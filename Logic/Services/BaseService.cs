@@ -9,11 +9,11 @@ namespace Logic.Services
 {
     public class BaseService
     {
-        public CursoEntities _context;
+        public CursoMVCEntities _context;
 
         public BaseService()
         {
-            _context = new CursoEntities();
+            _context = new CursoMVCEntities();
         }
 
     }

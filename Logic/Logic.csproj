@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -75,9 +76,6 @@
       <DependentUpon>CursoEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\UserGroup.cs">
-      <DependentUpon>CursoEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UserRole.cs">
       <DependentUpon>CursoEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
